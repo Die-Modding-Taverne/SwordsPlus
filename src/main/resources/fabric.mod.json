@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "swordsplus",
+  "version": "${version}",
+  "name": "SwordsPlus",
+  "description": "Mod for more items in your Minecraft World",
+  "authors": [],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/swordsplus/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "de.dmt.swordsplus.client.SwordsplusClient"
+    ],
+    "main": [
+      "de.dmt.swordsplus.Swordsplus"
+    ]
+  },
+  "mixins": [
+    "swordsplus.mixins.json",
+    {
+      "config": "swordsplus.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
