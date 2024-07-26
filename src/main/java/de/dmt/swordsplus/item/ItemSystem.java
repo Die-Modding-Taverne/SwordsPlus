@@ -19,7 +19,7 @@ public class ItemSystem extends SystemBase {
     @Override
     public void doInitialize() {
         for (ItemBase itemBase : items) {
-            Log.infof("Registering item: %s", itemBase.identifier.toString());
+            Log.infof("Registering item: \"%s\"", itemBase.identifier.toString());
             itemBase.register();
         }
     }

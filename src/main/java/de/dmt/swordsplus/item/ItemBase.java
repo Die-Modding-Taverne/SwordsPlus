@@ -30,7 +30,7 @@ public abstract class ItemBase {
 
     public void register() {
         if(registeredItem != null) {
-            Log.warning("Tried to register Item: " + identifier.toString() + " multiple times || IGNORING");
+            Log.warnf("Tried to register Item \"%s\" multiple times. Ignoring...", identifier.toString());
             return;
         }
 
@@ -39,8 +39,8 @@ public abstract class ItemBase {
     }
 
     private void registerEvents() {
-        if(registeredItem != null) {
-            Log.warning("Tried to register Events for Item: " + identifier.toString() + " before registering the Item itself");
+        if(registeredItem == null) {
+            Log.warnf("Tried to register Events for Item \"%s\" before registering the Item itself. Ignoring...", identifier.toString());
             return;
         }
 

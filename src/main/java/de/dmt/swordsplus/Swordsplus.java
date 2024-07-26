@@ -20,7 +20,7 @@ public class Swordsplus implements ModInitializer {
             try {
                 systemBase.initialize();
             } catch (Exception exception) {
-                Log.severef("Error while initializing system %s:\n%s", systemBase.name, StringUtil.fromException(exception));
+                Log.errorf("Error while initializing system \"%s\":\n%s", systemBase.name, StringUtil.fromException(exception));
                 throw new RuntimeException(exception);
             }
         }

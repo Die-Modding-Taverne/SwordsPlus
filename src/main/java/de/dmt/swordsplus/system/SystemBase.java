@@ -16,11 +16,11 @@ public abstract class SystemBase {
 
     public void initialize() throws Exception {
         if (initialized) {
-            Log.warning("Tried to initialize system \"" + name + "\" multiple times. Ignoring...");
+            Log.warnf("Tried to initialize system \"%s\" multiple times. Ignoring...", name);
             return;
         }
 
-        Log.info("Initializing system \"" + name + "\"");
+        Log.infof("Initializing system \"%s\"", name);
         doInitialize();
         this.initialized = true;
     }
