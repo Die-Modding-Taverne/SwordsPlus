@@ -5,26 +5,38 @@ import de.dmt.swordsplus.Swordsplus;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.SwordItem;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import org.jetbrains.annotations.Nullable;
 
+import javax.tools.Tool;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
-public abstract class ItemBase {
+public abstract class ItemBase extends Item {
 
     public final String id;
-    public final Item item;
     public final RegistryKey<ItemGroup> itemGroup;
     public final Identifier identifier;
+
     private Item registeredItem;
 
-    public ItemBase(String id, Item item, RegistryKey<ItemGroup> itemGroup) {
+    public ItemBase(String id, Item.Settings settings, RegistryKey<ItemGroup> itemGroup) {
+        super(settings);
+
         this.id = id;
-        this.item = item;
         this.itemGroup = itemGroup;
         this.identifier = Identifier.of(Swordsplus.MOD_ID, id);
+
+        new SwordItem()
+
         this.registeredItem = null;
     }
 
@@ -34,7 +46,7 @@ public abstract class ItemBase {
             return;
         }
 
-        this.registeredItem = Registry.register(Registries.ITEM, identifier, item);
+        this.registeredItem = Registry.register(Registries.ITEM, identifier, this);
         registerEvents();
     }
 
