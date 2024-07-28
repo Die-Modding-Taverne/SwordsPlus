@@ -1,4 +1,4 @@
-package de.dmt.swordsplus.item;
+package de.dmt.swordsplus.item.base;
 
 import de.dmt.swordsplus.Log;
 import de.dmt.swordsplus.Swordsplus;
@@ -34,8 +34,6 @@ public abstract class ItemBase extends Item {
         this.id = id;
         this.itemGroup = itemGroup;
         this.identifier = Identifier.of(Swordsplus.MOD_ID, id);
-
-        new SwordItem()
 
         this.registeredItem = null;
     }

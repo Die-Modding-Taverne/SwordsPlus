@@ -1,5 +1,8 @@
 package de.dmt.swordsplus.item;
 
+import de.dmt.swordsplus.item.base.ItemBase;
+import de.dmt.swordsplus.item.base.SwordItemBase;
+import de.dmt.swordsplus.item.material.ModMaterial;
 import net.minecraft.block.Block;
 import net.minecraft.item.*;
 import net.minecraft.item.tooltip.TooltipType;
@@ -11,42 +14,9 @@ import net.minecraft.util.Formatting;
 import java.util.List;
 
 
-public final class EmeraldSword extends ItemBase implements ToolMaterial {
+public final class EmeraldSword extends SwordItemBase {
 
     public EmeraldSword() {
-        super("emerald_sword", new Item.Settings(), ItemGroups.COMBAT);
-    }
-
-    @Override
-    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        tooltip.add(Text.of(""));
-        tooltip.add(Text.of("When in Main Hand:").copy().formatted(Formatting.GRAY));
-        tooltip.add(Text.of(" 7 Attack Damage").copy().formatted(Formatting.DARK_GREEN));
-        tooltip.add(Text.of(" 1.6 Attack Speed").copy().formatted(Formatting.DARK_GREEN));
-    }
-
-    @Override
-    public int getDurability() {
-        return 1754;
-    }
-
-    @Override
-    public float getMiningSpeedMultiplier() {
-        return 1.0F;
-    }
-
-    @Override
-    public float getAttackDamage() {
-        return 7.0F;
-    }
-
-    @Override
-    public TagKey<Block> getInverseTag() {
-        return null;
-    }
-
-    @Override
-    public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(this, Items.EMERALD);
+        super("emerald_sword", ModMaterial.EMERALD_MATERIAL, new Item.Settings(), 3, -2.4F, ItemGroups.COMBAT);
     }
 }

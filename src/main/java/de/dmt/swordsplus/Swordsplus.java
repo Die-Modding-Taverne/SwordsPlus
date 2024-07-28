@@ -1,12 +1,11 @@
 package de.dmt.swordsplus;
 
-import de.dmt.swordsplus.item.ItemSystem;
+import de.dmt.swordsplus.system.ItemSystem;
 import de.dmt.swordsplus.system.SystemBase;
 import de.dmt.swordsplus.util.StringUtil;
 import net.fabricmc.api.ModInitializer;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 public class Swordsplus implements ModInitializer {
     public static final String MOD_ID = "swordsplus";
